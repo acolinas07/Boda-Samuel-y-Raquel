@@ -166,6 +166,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: transform .3s, opacity .3s;
 }
 
+.nav-close { display: none; }
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -197,9 +199,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-toggle.open span:first-child  { transform: translateY(6px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:last-child   { transform: translateY(-6px) rotate(-45deg); }
-}
-.nav-close {
-  display: none;
 }
 
 /* ============================================================
