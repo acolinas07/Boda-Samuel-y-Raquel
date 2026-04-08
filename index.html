@@ -414,79 +414,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 2rem;
 }
 
-.carousel-slide {
-  position: absolute;
-  width: 72%;
-  height: 84%;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: cover;
-  opacity: 0;
-  filter: blur(4px) brightness(0.4);
-  transition: transform .6s cubic-bezier(.4,0,.2,1), opacity .5s ease, filter .5s ease, box-shadow .5s ease;
-  z-index: 0;
-}
-.carousel-slide.prev {
-  opacity: 1;
-  transform: translateX(calc(-50% - 108%));
-  filter: blur(3px) brightness(0.5);
-  z-index: 1;
-}
-.carousel-slide.active {
-  opacity: 1;
-  transform: translateX(-50%);
-  filter: none;
-  z-index: 2;
-  box-shadow: 0 24px 64px rgba(44,44,44,.35);
-}
-.carousel-slide.next {
-  opacity: 1;
-  transform: translateX(calc(-50% + 108%));
-  filter: blur(3px) brightness(0.5);
-  z-index: 1;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(249,245,239,.9);
-  color: var(--charcoal);
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  z-index: 3;
-  transition: background .2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.carousel-btn:hover { background: var(--cream); }
-.carousel-prev { left: 1rem; }
-.carousel-next { right: 1rem; }
-
-.carousel-dots {
-  position: absolute;
-  bottom: .6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: .4rem;
-  z-index: 3;
-}
-.carousel-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(44,44,44,.3);
-  cursor: pointer;
-  transition: background .2s;
-}
-.carousel-dot.active { background: var(--charcoal); }
-
 .historia-img-frame img {
   width: 100%;
   height: 100%;
@@ -901,43 +828,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 16px;
   accent-color: var(--gold);
   border-bottom: none;
-  padding: 0;
   flex-shrink: 0;
-  appearance: auto;
-  -webkit-appearance: auto;
-}
-
-/* Acompañantes dinámicos */
-.companions-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0 1.2rem;
-  color: var(--gold);
-  font-size: .7rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-}
-.companions-header::before,
-.companions-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-.companion-card {
-  background: rgba(201,169,110,.06);
-  border: 1px solid var(--border);
-  padding: 1.5rem 1.5rem .5rem;
-  margin-bottom: 1rem;
-}
-.companion-label {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--charcoal);
-  display: block;
-  margin-bottom: 1rem;
 }
 
 .btn-submit {
@@ -1086,15 +977,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .galeria-header { text-align: center; margin-bottom: 4rem; }
-
-.galeria-carousel {
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  aspect-ratio: 3/2;
-  overflow: hidden;
-  background: var(--cream-dark);
-}
 
 .galeria-grid {
   display: grid;
@@ -1598,179 +1480,6 @@ footer p {
   letter-spacing: .35em;
   margin-bottom: 1.8rem;
 }
-
-/* ============================================================
-   REFINAMIENTOS VISUALES V2 — Diseño moderno y elegante
-   ============================================================ */
-
-/* —— Tipografía global —————————————————————————————————————— */
-.section-title {
-  letter-spacing: -.015em;
-  font-weight: 300;
-}
-.section-label {
-  letter-spacing: .26em;
-}
-
-/* —— Navegación —— */
-#nav {
-  padding: 1.2rem 2rem;
-}
-#nav.scrolled {
-  background: rgba(249,245,239,.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(201,169,110,.18), 0 4px 24px rgba(44,44,44,.06);
-}
-.nav-logo {
-  font-size: 1.3rem;
-  letter-spacing: .14em;
-}
-
-/* —— Hero —— */
-.hero-date-pre {
-  letter-spacing: .32em;
-  font-size: .66rem;
-}
-.hero-names {
-  letter-spacing: -.025em;
-  line-height: 1.05;
-}
-.hero-tagline {
-  font-size: clamp(.9rem, 1.5vw, 1.05rem);
-  letter-spacing: .06em;
-  opacity: .7;
-}
-.hero-scroll {
-  letter-spacing: .2em;
-  font-size: .6rem;
-  opacity: .45;
-}
-
-/* —— Countdown —— */
-.countdown-unit {
-  letter-spacing: .2em;
-  font-size: .58rem;
-  opacity: .5;
-  margin-top: .4rem;
-}
-.countdown-separator {
-  opacity: .3;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: .6rem;
-}
-
-/* —— Historia —— */
-.historia-img-frame {
-  box-shadow: 16px 22px 64px rgba(44,44,44,.16);
-  border: none;
-}
-.historia-img-deco {
-  border-color: rgba(201,169,110,.25);
-}
-.milestone-year {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-}
-.historia-body p {
-  font-size: .9rem;
-  line-height: 2;
-  color: var(--muted);
-}
-
-/* —— Info / Programa del día —— */
-.info-venue-name {
-  text-shadow: none;
-  font-weight: 300;
-}
-.info-programme {
-  background: var(--white);
-  box-shadow: 0 8px 40px rgba(44,44,44,.07);
-}
-.info-programme-step {
-  padding: 2.6rem 2rem 3rem;
-}
-.info-programme-step:hover {
-  background: var(--cream);
-}
-.info-prog-time {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-}
-
-/* —— Mapa —— */
-.mapa-embed {
-  box-shadow: 0 16px 56px rgba(44,44,44,.15);
-  border: none;
-}
-.mapa-embed iframe {
-  filter: grayscale(.5) sepia(.12);
-}
-
-/* —— RSVP —— */
-#rsvp {
-  background: linear-gradient(160deg, #1c1c1c 0%, #2c2c2c 50%, #1c201c 100%);
-}
-.rsvp-form-wrap {
-  border-color: rgba(201,169,110,.15);
-  background: rgba(255,255,255,.03);
-}
-.form-row label {
-  letter-spacing: .18em;
-  font-size: .65rem;
-  opacity: .75;
-}
-
-/* —— Alojamiento —— */
-.hotel-name {
-  font-size: .98rem;
-  font-weight: 500;
-  letter-spacing: .03em;
-}
-.hotel-meta {
-  margin-top: .3rem;
-  line-height: 1.8;
-}
-
-/* —— Regalos —— */
-.cuenta-box {
-  padding: 2.2rem 3rem;
-}
-.cuenta-number {
-  letter-spacing: .12em;
-  font-size: 1.4rem;
-}
-.cuenta-label {
-  letter-spacing: .22em;
-  font-size: .65rem;
-  margin-bottom: .8rem;
-}
-
-/* —— Galería / Carrusel —— */
-.galeria-carousel {
-  box-shadow: 0 20px 70px rgba(44,44,44,.14);
-}
-
-/* —— Mensajes —— */
-#mensajes {
-  background: linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 55%, #1a1e1a 100%);
-}
-.mensajes-header .section-title { color: var(--cream); }
-.message-author {
-  letter-spacing: .04em;
-}
-
-/* —— Footer —— */
-footer {
-  background: var(--cream-dark);
-  border-top: 1px solid rgba(201,169,110,.18);
-}
-footer .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -.02em;
-}
 </style>
 </head>
 <body>
@@ -1858,6 +1567,11 @@ footer .section-title {
       <div class="historia-image-col reveal">
         <div class="historia-img-deco" aria-hidden="true"></div>
         <div class="historia-img-frame">
+          <!--
+            📸 FOTO DE LA PAREJA:
+            Descomenta la línea siguiente y pon la ruta a tu imagen.
+            Ejemplo: <img src="fotos/raquel-samuel.jpg" alt="Raquel y Samuel">
+          -->
           <img src="FOTOS/Samuel-Raquel-1.jpeg" alt="Raquel y Samuel">
         </div>
       </div>
@@ -1940,7 +1654,7 @@ footer .section-title {
       <!-- ✏️ Cambia el nombre y dirección del lugar -->
       <span class="info-venue-name">Restaurante Los Braseros</span>
       <span class="venue-rule"></span>
-      <span class="info-venue-address">C. Logroño, km 102, 09193 Burgos</span>
+      
     </div>
 
     <!-- Programa del día -->
@@ -1988,7 +1702,7 @@ footer .section-title {
         <h2 class="section-title">Nos vemos<br>en Burgos</h2>
         <div class="divider"></div>
         <p>
-          El evento tendrá lugar a las afueras de Burgos, en el restauran Los Braseros.
+          El evento tendrá lugar a las afueras de Burgos.
           Si vienes de fuera, a continuación encontrarás toda la información
           para llegar sin complicaciones.
           <br><br>
@@ -2066,72 +1780,23 @@ footer .section-title {
           </div>
         </div>
 
-        <div class="form-row">
-          <label for="acompanantes">Nº de acompañantes</label>
-          <select id="acompanantes" name="acompanantes" onchange="actualizarAcompanantes()">
-            <option value="0">Solo yo</option>
-            <option value="1">+1 persona</option>
-            <option value="2">+2 personas</option>
-            <option value="3">+3 personas</option>
-            <option value="4">+4 personas</option>
-          </select>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label for="acompanantes">Nº de acompañantes</label>
+            <select id="acompanantes" name="acompanantes">
+              <option value="0">Solo yo</option>
+              <option value="1">+1 persona</option>
+              <option value="2">+2 personas</option>
+              <option value="3">+3 personas</option>
+              <option value="4">+4 o más</option>
+            </select>
+          </div>
+
         </div>
 
         <div class="form-row">
-          <label for="alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
+          <label for="alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco) que debamos tener en cuenta?</label>
           <textarea id="alergias" name="alergias" placeholder="Escribe aquí cualquier restricción alimentaria."></textarea>
-        </div>
-
-        <div id="companions-section" style="display:none">
-          <div class="companions-header"><span>Datos de los acompañantes</span></div>
-
-          <div class="companion-card" id="companion-1">
-            <span class="companion-label">Acompañante 1</span>
-            <div class="form-row">
-              <label for="acomp_1_nombre">Nombre y apellidos</label>
-              <input type="text" id="acomp_1_nombre" name="acompanante_1_nombre" placeholder="Nombre completo">
-            </div>
-            <div class="form-row">
-              <label for="acomp_1_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
-              <input type="text" id="acomp_1_alergias" name="acompanante_1_alergias" placeholder="Alergias, intolerancias, vegetariano… (opcional)">
-            </div>
-          </div>
-
-          <div class="companion-card" id="companion-2" style="display:none">
-            <span class="companion-label">Acompañante 2</span>
-            <div class="form-row">
-              <label for="acomp_2_nombre">Nombre y apellidos</label>
-              <input type="text" id="acomp_2_nombre" name="acompanante_2_nombre" placeholder="Nombre completo">
-            </div>
-            <div class="form-row">
-              <label for="acomp_2_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
-              <input type="text" id="acomp_2_alergias" name="acompanante_2_alergias" placeholder="Alergias, intolerancias, vegetariano… (opcional)">
-            </div>
-          </div>
-
-          <div class="companion-card" id="companion-3" style="display:none">
-            <span class="companion-label">Acompañante 3</span>
-            <div class="form-row">
-              <label for="acomp_3_nombre">Nombre y apellidos</label>
-              <input type="text" id="acomp_3_nombre" name="acompanante_3_nombre" placeholder="Nombre completo">
-            </div>
-            <div class="form-row">
-              <label for="acomp_3_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
-              <input type="text" id="acomp_3_alergias" name="acompanante_3_alergias" placeholder="Alergias, intolerancias, vegetariano… (opcional)">
-            </div>
-          </div>
-
-          <div class="companion-card" id="companion-4" style="display:none">
-            <span class="companion-label">Acompañante 4</span>
-            <div class="form-row">
-              <label for="acomp_4_nombre">Nombre y apellidos</label>
-              <input type="text" id="acomp_4_nombre" name="acompanante_4_nombre" placeholder="Nombre completo">
-            </div>
-            <div class="form-row">
-              <label for="acomp_4_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
-              <input type="text" id="acomp_4_alergias" name="acompanante_4_alergias" placeholder="Alergias, intolerancias, vegetariano… (opcional)">
-            </div>
-          </div>
         </div>
 
         <div class="form-row">
@@ -2173,12 +1838,20 @@ footer .section-title {
             que recomendéis. Puedes añadir o quitar ítems según necesites.
           -->
           <li>
-            <span class="hotel-name">Hotel Centro Los Braseros</span>
-            <span class="hotel-meta">📍 Avda. del Cid, 2 bis, 09005 Burgos</span>
+            <span class="hotel-name">Hotel Nombre Uno</span>
+            <span class="hotel-meta">📍 Dirección placeholder, Burgos<br>
+            Menciona la boda de Samuel y Raquel para tarifa especial.<br>
+            <em style="color:var(--gold)">Código de descuento: PLACEHOLDER</em></span>
           </li>
           <li>
-            <span class="hotel-name">Hotel Los Braseros</span>
-            <span class="hotel-meta">📍 Calle Luis Cernuda, 4, 09006 Burgos</span>
+            <span class="hotel-name">Hotel Nombre Dos</span>
+            <span class="hotel-meta">📍 Dirección placeholder, Burgos<br>
+            A 10 min del lugar del evento.</span>
+          </li>
+          <li>
+            <span class="hotel-name">Hotel Nombre Tres</span>
+            <span class="hotel-meta">📍 Dirección placeholder, Burgos<br>
+            Opción más económica · Muy bien valorado.</span>
           </li>
         </ul>
       </div>
@@ -2260,7 +1933,7 @@ footer .section-title {
         Sustituye el placeholder por vuestro IBAN real.
         Formato: ES00 0000 0000 0000 0000 0000
       -->
-      <span class="cuenta-number">ES16 3085 0220 1527 2306 2416</span>
+      <span class="cuenta-number">ES00 0000 0000 0000 0000 0000</span>
     </div>
   </div>
 </section>
@@ -2276,21 +1949,23 @@ footer .section-title {
       <div class="divider"></div>
     </div>
 
-    <div class="galeria-carousel reveal reveal-delay-1">
-      <img src="FOTOS/Samuel-Raquel-2.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-3.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-4.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-5.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-6.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-7.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-8.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-9.jpeg"  alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-10.jpeg" alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-11.jpeg" alt="Raquel y Samuel" class="carousel-slide">
-      <img src="FOTOS/Samuel-Raquel-12.jpeg" alt="Raquel y Samuel" class="carousel-slide" style="object-position: center 35%;">
-      <button class="carousel-btn carousel-prev" aria-label="Anterior">&#8592;</button>
-      <button class="carousel-btn carousel-next" aria-label="Siguiente">&#8594;</button>
-      <div class="carousel-dots"></div>
+    <!--
+      📸 GALERÍA DE FOTOS:
+      Para añadir imágenes reales:
+      1. Crea una carpeta "fotos/" junto al archivo HTML
+      2. En cada .galeria-item añade una etiqueta <img src="fotos/tu-foto.jpg" alt="descripción">
+      3. Elimina o comenta el ::after con el emoji en el CSS
+
+      Los ítems tienen layouts distintos: vertical, cuadrado, apaisado.
+      Puedes ajustar el grid-template a tus fotos en el CSS.
+    -->
+    <div class="galeria-grid reveal reveal-delay-1">
+      <div class="galeria-item" data-label="Nuestra historia"></div>
+      <div class="galeria-item" data-label="Momentos juntos"></div>
+      <div class="galeria-item" data-label="Nuestro lugar"></div>
+      <div class="galeria-item" data-label="El viaje"></div>
+      <div class="galeria-item" data-label="La propuesta"></div>
+      <div class="galeria-item" data-label="Juntos para siempre"></div>
     </div>
   </div>
 </section>
@@ -2310,7 +1985,25 @@ footer .section-title {
 
     <div class="mensajes-inner">
 
-      <div id="msg-area" style="display:block">
+      <!-- PUERTA DE CONTRASEÑA -->
+      <!--
+        🔐 CONTRASEÑA:
+        La contraseña por defecto es "burgos2026".
+        Cámbiala en el JavaScript al final del archivo buscando:
+          const MSG_PASSWORD = "burgos2026";
+        Comunica la contraseña a tus invitados en la invitación física.
+      -->
+      <div id="msg-gate">
+        <p>Acceso exclusivo para invitados</p>
+        <div class="gate-form">
+          <input type="password" id="gateInput" placeholder="Contraseña de invitado">
+          <button onclick="checkPassword()">Entrar</button>
+        </div>
+        <p id="gate-error">Contraseña incorrecta. Inténtalo de nuevo.</p>
+      </div>
+
+      <!-- ÁREA DE MENSAJES (oculta hasta autenticación) -->
+      <div id="msg-area">
 
         <!-- Formulario nuevo mensaje -->
         <div class="msg-form-wrap">
@@ -2413,19 +2106,6 @@ const observer  = new IntersectionObserver((entries) => {
 revealEls.forEach(el => observer.observe(el));
 
 // ============================================================
-// RSVP — ACOMPAÑANTES DINÁMICOS
-// ============================================================
-function actualizarAcompanantes() {
-  const n = parseInt(document.getElementById('acompanantes').value);
-  const section = document.getElementById('companions-section');
-  section.style.display = n > 0 ? 'block' : 'none';
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById('companion-' + i).style.display = i <= n ? 'block' : 'none';
-  }
-}
-document.getElementById('acompanantes').addEventListener('change', actualizarAcompanantes);
-
-// ============================================================
 // RSVP FORM
 // ============================================================
 document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
@@ -2459,50 +2139,24 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
   }
 });
 
-
 // ============================================================
-// CARRUSEL — NUESTRA HISTORIA EN IMÁGENES
+// MENSAJES — PASSWORD GATE
 // ============================================================
-var carouselSlides  = document.querySelectorAll('.carousel-slide');
-var carouselDotsEl  = document.querySelector('.carousel-dots');
-var carouselCurrent = 0;
-var carouselTimer   = null;
-
-// Crear puntos
-for (var ci = 0; ci < carouselSlides.length; ci++) {
-  (function(i) {
-    var dot = document.createElement('span');
-    dot.className = i === 0 ? 'carousel-dot active' : 'carousel-dot';
-    dot.onclick = function() { carouselGoTo(i); };
-    carouselDotsEl.appendChild(dot);
-  })(ci);
+function checkPassword() {
+  const val = document.getElementById('gateInput').value.trim();
+  if (val === MSG_PASSWORD) {
+    document.getElementById('msg-gate').style.display  = 'none';
+    document.getElementById('msg-area').style.display  = 'block';
+    loadMessages();
+  } else {
+    document.getElementById('gate-error').style.display = 'block';
+  }
 }
 
-function carouselUpdateClasses() {
-  var total   = carouselSlides.length;
-  var prevIdx = (carouselCurrent - 1 + total) % total;
-  var nextIdx = (carouselCurrent + 1) % total;
-  carouselSlides.forEach(function(s) { s.classList.remove('active', 'prev', 'next'); });
-  carouselSlides[carouselCurrent].classList.add('active');
-  carouselSlides[prevIdx].classList.add('prev');
-  carouselSlides[nextIdx].classList.add('next');
-}
-
-function carouselGoTo(n) {
-  carouselDotsEl.children[carouselCurrent].classList.remove('active');
-  carouselCurrent = (n + carouselSlides.length) % carouselSlides.length;
-  carouselUpdateClasses();
-  carouselDotsEl.children[carouselCurrent].classList.add('active');
-  clearInterval(carouselTimer);
-  carouselTimer = setInterval(function() { carouselGoTo(carouselCurrent + 1); }, 4000);
-}
-
-document.querySelector('.carousel-prev').onclick = function() { carouselGoTo(carouselCurrent - 1); };
-document.querySelector('.carousel-next').onclick = function() { carouselGoTo(carouselCurrent + 1); };
-
-// Inicializar
-carouselUpdateClasses();
-carouselTimer = setInterval(function() { carouselGoTo(carouselCurrent + 1); }, 4000);
+// Enter key en el campo de contraseña
+document.getElementById('gateInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkPassword();
+});
 
 // ============================================================
 // MENSAJES — Almacenamiento local (localStorage)
@@ -2576,9 +2230,6 @@ document.getElementById('msgForm').addEventListener('submit', function(e) {
 function escapeHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
-// Cargar mensajes al iniciar
-loadMessages();
 
 // ============================================================
 // SMOOTH SCROLL para navegación interna
