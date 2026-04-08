@@ -2333,6 +2333,7 @@ footer .section-title {
             <textarea id="msgTexto" placeholder="Escribe aquí tu mensaje para Samuel y Raquel…" required></textarea>
             <button type="submit" class="btn-submit" style="max-width:280px">Enviar mensaje ✉</button>
           </form>
+          <p id="msgThanks" style="display:none; text-align:center; color:var(--sage-dark); font-family:var(--font-display); font-style:italic; font-size:1.15rem; margin-top:1rem;">Gracias por tus palabras. Las guardaremos para siempre.</p>
         </div>
 
         <!-- Tablón de mensajes -->
@@ -2604,9 +2605,8 @@ document.getElementById('msgForm').addEventListener('submit', async function(e) 
     });
   } catch (_) { /* Si falla el envío, el mensaje queda guardado en local igualmente */ }
 
-  this.reset();
-  btn.textContent = 'Enviar mensaje ✉';
-  btn.disabled = false;
+  this.style.display = 'none';
+  document.getElementById('msgThanks').style.display = 'block';
 
   const defaults = [
     { nombre: "María & Carlos", texto: "¡Felicidades a los dos! No podemos esperar a celebrar con vosotros este día tan especial. Os queremos mucho." },
