@@ -128,9 +128,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .nav-links {
+  position: fixed;
+  top: 0;
+  right: 2rem;
   display: flex;
   gap: 2.5rem;
   list-style: none;
+  align-items: center;
+  padding: 1.4rem 0;
+  z-index: 100;
+  transition: padding .4s;
+}
+#nav.scrolled + .nav-links {
+  padding: .9rem 0;
 }
 .nav-links a {
   font-size: .72rem;
