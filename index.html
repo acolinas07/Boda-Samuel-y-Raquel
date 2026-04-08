@@ -2080,6 +2080,14 @@ footer .section-title {
         </div>
 
         <div class="form-row">
+          <label>¿Cómo vas a llegar a la boda?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="transporte" value="Autobús privado"> 🚌 En el autobús privado</label>
+            <label><input type="radio" name="transporte" value="Medios propios"> 🚗 En medios propios</label>
+          </div>
+        </div>
+
+        <div class="form-row">
           <label for="acompanantes">Nº de acompañantes</label>
           <select id="acompanantes" name="acompanantes" onchange="actualizarAcompanantes()">
             <option value="0">Solo yo</option>
@@ -2232,11 +2240,8 @@ footer .section-title {
             <span class="transport-icon">🚌</span>
             <span>
               <strong>Bus privado</strong><br>
-              <!--
-                ✏️ BUS: Si organizáis bus desde el centro de Burgos, ponlo aquí.
-              -->
-              Si organizamos bus de vuelta, publicaremos los detalles próximamente.
-              <em style="color:var(--gold)">Pendiente de confirmar.</em>
+              Habrá autobús de ida y vuelta con varias paradas por la ciudad.<br>
+              Los detalles de horarios y puntos de recogida se comunicarán próximamente.
             </span>
           </li>
         </ul>
