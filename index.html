@@ -171,6 +171,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-links.open { display: flex; }
   .nav-links a { font-size: 1rem; letter-spacing: .2em; color: var(--charcoal); }
   .nav-toggle { display: flex; z-index: 201; }
+  .nav-close {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.6rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--charcoal);
+    cursor: pointer;
+    padding: 0;
+  }
   .nav-toggle.open span:first-child  { transform: translateY(6px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:last-child   { transform: translateY(-6px) rotate(-45deg); }
@@ -1785,6 +1797,7 @@ footer .section-title {
   </button>
 </nav>
 <ul class="nav-links" id="navLinks">
+  <button class="nav-close" onclick="closeMenu()" aria-label="Cerrar menú">&times;</button>
   <li><a href="#historia"   onclick="closeMenu()">Nuestra historia</a></li>
   <li><a href="#info"       onclick="closeMenu()">El gran día</a></li>
   <li><a href="#rsvp"       onclick="closeMenu()">Confirmar</a></li>
