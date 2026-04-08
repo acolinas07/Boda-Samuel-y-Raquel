@@ -182,6 +182,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-links a { font-size: 1rem; letter-spacing: .2em; color: var(--charcoal); }
   .nav-toggle { display: flex; z-index: 201; }
   .nav-close {
+    display: block;
     position: absolute;
     top: 1.4rem;
     right: 1.6rem;
@@ -196,6 +197,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-toggle.open span:first-child  { transform: translateY(6px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:last-child   { transform: translateY(-6px) rotate(-45deg); }
+}
+.nav-close {
+  display: none;
 }
 
 /* ============================================================
