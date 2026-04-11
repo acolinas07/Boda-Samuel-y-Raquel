@@ -843,7 +843,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .rsvp-header { text-align: center; margin-bottom: 4rem; }
 .rsvp-header .section-label { color: var(--gold); }
 .rsvp-header .section-title { color: var(--cream); }
-.rsvp-header .divider { background: var(--gold); }
 
 .rsvp-header p {
   color: var(--sage);
@@ -1189,7 +1188,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mensajes-header { text-align: center; margin-bottom: 4rem; }
 .mensajes-header .section-label { color: var(--gold); }
 .mensajes-header .section-title { color: var(--cream); }
-.mensajes-header .divider { background: var(--gold); }
 .mensajes-header p { color: var(--sage); font-size: .9rem; margin-top: 1rem; }
 
 .mensajes-inner {
@@ -1279,6 +1277,32 @@ footer p {
 /* ============================================================
    MEJORAS ESTÉTICAS
    ============================================================ */
+
+/* —— Separador entre secciones ——————————————————————————————— */
+.section-sep {
+  height: 0;
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+}
+.section-sep::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 25%, var(--gold) 75%, transparent);
+}
+.section-sep::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-size: 6px;
+  color: var(--gold);
+  line-height: 1;
+  z-index: 1;
+}
 
 /* —— Divider ornamentado —————————————————————————————————————— */
 .divider {
@@ -1794,6 +1818,7 @@ footer .section-title {
   <div class="hero-scroll" aria-hidden="true">Desplaza</div>
 </section>
 
+<div class="section-sep"></div>
 <!-- ============================================================
      COUNTDOWN
      ============================================================ -->
@@ -1822,6 +1847,7 @@ footer .section-title {
   </div>
 </section>
 
+<div class="section-sep"></div>
 <!-- ============================================================
      NUESTRA HISTORIA
      ============================================================ -->
@@ -1984,6 +2010,7 @@ footer .section-title {
   </div>
 </section>
 
+<div class="section-sep"></div>
 <!-- ============================================================
      RSVP — CONFIRMACIÓN DE ASISTENCIA
      ============================================================ -->
@@ -2128,6 +2155,7 @@ footer .section-title {
   </div>
 </section>
 
+<div class="section-sep"></div>
 <!-- ============================================================
      ALOJAMIENTO & TRANSPORTE
      ============================================================ -->
@@ -2266,6 +2294,7 @@ footer .section-title {
 </section>
 
 
+<div class="section-sep"></div>
 <!-- ============================================================
      MENSAJES PARA LOS NOVIOS
      ============================================================ -->
