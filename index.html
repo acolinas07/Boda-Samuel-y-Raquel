@@ -1177,11 +1177,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .galeria-item { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1 !important; }
 }
 
+
 /* ============================================================
    MENSAJES
    ============================================================ */
 #mensajes {
-  background: var(--charcoal);
+  background: linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 55%, #1a1e1a 100%);
   padding: var(--section-pad) 1.5rem;
 }
 
@@ -1196,52 +1197,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin: 0 auto;
 }
 
-/* Password gate */
-#msg-gate {
-  text-align: center;
-}
-#msg-gate p { color: var(--sage); font-size: .88rem; margin-bottom: 1.5rem; }
-
-.gate-form {
-  display: inline-flex;
-  gap: 0;
-  max-width: 340px;
-  width: 100%;
-}
-.gate-form input {
-  flex: 1;
-  padding: .85rem 1rem;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(201,169,110,.3);
-  border-right: none;
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-size: .9rem;
-  outline: none;
-}
-.gate-form input::placeholder { color: rgba(249,245,239,.25); }
-.gate-form button {
-  padding: .85rem 1.5rem;
-  background: var(--gold);
-  color: var(--charcoal);
-  font-size: .68rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-family: var(--font-body);
-  font-weight: 500;
-  transition: background .2s;
-}
-.gate-form button:hover { background: var(--gold-light); }
-#gate-error { color: #e57373; font-size: .78rem; margin-top: .8rem; display: none; }
-
-/* Messages area */
-#msg-area { display: none; }
-
 .msg-form-wrap {
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(201,169,110,.2);
   padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
-  margin-bottom: 3rem;
 }
 
 .msg-form-wrap h3 {
@@ -1273,42 +1232,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .msg-form input:focus,
 .msg-form textarea:focus { border-bottom-color: var(--gold); }
 .msg-form textarea { resize: vertical; min-height: 100px; }
-
-.msg-board h3 {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.5rem;
-  color: var(--cream);
-  margin-bottom: 2rem;
-}
-
-.messages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.message-card {
-  background: rgba(255,255,255,.04);
-  border-left: 2px solid var(--gold);
-  padding: 1.5rem 1.8rem;
-  animation: fadeInUp .4s ease forwards;
-}
-@keyframes fadeInUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
-
-.message-author {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--gold);
-  display: block;
-  margin-bottom: .5rem;
-}
-.message-text {
-  color: rgba(249,245,239,.75);
-  font-size: .88rem;
-  line-height: 1.8;
-}
 
 /* ============================================================
    FOOTER
@@ -1587,11 +1510,6 @@ footer p {
   box-shadow: 0 10px 36px rgba(44,44,44,.18);
 }
 
-/* —— Message cards ——————————————————————————————————————————— */
-.message-card {
-  transition: background .3s;
-}
-.message-card:hover { background: rgba(255,255,255,.07); }
 
 /* —— Nav — subrayado dorado en hover ————————————————————————— */
 .nav-links a {
@@ -1778,14 +1696,6 @@ footer p {
   box-shadow: 0 20px 70px rgba(44,44,44,.14);
 }
 
-/* —— Mensajes —— */
-#mensajes {
-  background: linear-gradient(160deg, #1a1a1a 0%, var(--charcoal) 55%, #1a1e1a 100%);
-}
-.mensajes-header .section-title { color: var(--cream); }
-.message-author {
-  letter-spacing: .04em;
-}
 
 /* —— Footer —— */
 footer {
@@ -2316,6 +2226,7 @@ footer .section-title {
   </div>
 </section>
 
+
 <!-- ============================================================
      MENSAJES PARA LOS NOVIOS
      ============================================================ -->
@@ -2325,33 +2236,17 @@ footer .section-title {
       <span class="section-label">Mensajes</span>
       <h2 class="section-title">Escríbenos algo bonito</h2>
       <div class="divider"></div>
-      <p>Un espacio privado para dejar vuestros deseos, anécdotas y cariño.<br>
-         Introduzca la contraseña que os hemos facilitado para acceder.</p>
+      <p>Déjanos unas palabras de cariño para el gran día.</p>
     </div>
-
     <div class="mensajes-inner">
-
-      <div id="msg-area" style="display:block">
-
-        <!-- Formulario nuevo mensaje -->
-        <div class="msg-form-wrap">
-          <h3>Dejar un mensaje</h3>
-          <form class="msg-form" id="msgForm">
-            <input type="text" id="msgNombre" placeholder="Tu nombre" required>
-            <textarea id="msgTexto" placeholder="Escribe aquí tu mensaje para Samuel y Raquel…" required></textarea>
-            <button type="submit" class="btn-submit" style="max-width:280px">Enviar mensaje ✉</button>
-          </form>
-          <p id="msgThanks" style="display:none; text-align:center; color:var(--sage-dark); font-family:var(--font-display); font-style:italic; font-size:1.15rem; margin-top:1rem;">Gracias por tus palabras. Las guardaremos para siempre.</p>
-        </div>
-
-        <!-- Tablón de mensajes -->
-        <div class="msg-board">
-          <h3>Mensajes recibidos</h3>
-          <div class="messages-list" id="messagesList">
-            <!-- Los mensajes se insertan aquí dinámicamente -->
-          </div>
-        </div>
-
+      <div class="msg-form-wrap">
+        <h3>Dejar un mensaje</h3>
+        <form class="msg-form" id="msgForm">
+          <input type="text" id="msgNombre" placeholder="Tu nombre" required>
+          <textarea id="msgTexto" placeholder="Escribe aquí tu mensaje para Samuel y Raquel…" required></textarea>
+          <button type="submit" class="btn-submit" style="max-width:280px">Enviar mensaje ✉</button>
+        </form>
+        <p id="msgThanks" style="display:none; text-align:center; color:var(--sage-dark); font-family:var(--font-display); font-style:italic; font-size:1.15rem; margin-top:1rem;">Gracias por tus palabras. Las guardaremos para siempre.</p>
       </div>
     </div>
   </div>
@@ -2374,8 +2269,6 @@ footer .section-title {
 // CONFIGURACIÓN — Cambia estos valores
 // ============================================================
 
-// 🔐 CONTRASEÑA para la sección de mensajes
-const MSG_PASSWORD = "burgos2026";   // ← Cámbiala por la que quieras
 
 // 📅 FECHA DE LA BODA (no cambiar salvo que cambie la fecha)
 const WEDDING_DATE = new Date("2026-08-01T12:00:00");
@@ -2533,72 +2426,21 @@ document.querySelector('.carousel-next').onclick = function() { carouselGoTo(car
 carouselUpdateClasses();
 carouselTimer = setInterval(function() { carouselGoTo(carouselCurrent + 1); }, 4000);
 
+
 // ============================================================
-// MENSAJES — Almacenamiento local (localStorage)
-// Los mensajes se guardan en el navegador del visitante.
-// Para que persistan entre usuarios, usa una solución como:
-//   - Formspree (solo envío, no lectura)
-//   - Airtable + API (requiere clave API)
-//   - Firebase Realtime Database (gratuito hasta ciertos límites)
-//
-// Por ahora: los mensajes se guardan localmente y aparecen
-// para el visitante que los dejó. Para una demo completa
-// con persistencia real, consulta las instrucciones al final.
+// MENSAJES — Envío por email via Web3Forms
 // ============================================================
-
-const STORAGE_KEY = 'raquelsamuel_messages';
-
-function loadMessages() {
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-
-  // Mensajes de ejemplo pre-cargados (los puedes eliminar)
-  const defaults = [
-    { nombre: "María & Carlos", texto: "¡Felicidades a los dos! No podemos esperar a celebrar con vosotros este día tan especial. Os queremos mucho." },
-    { nombre: "La familia González", texto: "Que este nuevo capítulo esté lleno de amor, risas y aventuras compartidas. ¡Salud por Samuel y Raquel" }
-  ];
-
-  const all = [...defaults, ...saved];
-  renderMessages(all);
-}
-
-function renderMessages(msgs) {
-  const list = document.getElementById('messagesList');
-  list.innerHTML = '';
-
-  if (msgs.length === 0) {
-    list.innerHTML = '<p style="color:var(--sage);font-size:.88rem;">Aún no hay mensajes. ¡Sé el primero en escribir algo bonito!</p>';
-    return;
-  }
-
-  msgs.forEach(m => {
-    const card = document.createElement('div');
-    card.className = 'message-card';
-    card.innerHTML = `
-      <span class="message-author">${escapeHtml(m.nombre)}</span>
-      <p class="message-text">${escapeHtml(m.texto)}</p>
-    `;
-    list.appendChild(card);
-  });
-}
-
 document.getElementById('msgForm').addEventListener('submit', async function(e) {
   e.preventDefault();
 
   const nombre = document.getElementById('msgNombre').value.trim();
   const texto  = document.getElementById('msgTexto').value.trim();
-
   if (!nombre || !texto) return;
 
   const btn = this.querySelector('button[type="submit"]');
   btn.textContent = 'Enviando…';
   btn.disabled = true;
 
-  // Guardar en localStorage
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  saved.push({ nombre, texto });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-
-  // Enviar copia por email via Web3Forms
   try {
     await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -2611,24 +2453,11 @@ document.getElementById('msgForm').addEventListener('submit', async function(e) 
         mensaje: texto,
       }),
     });
-  } catch (_) { /* Si falla el envío, el mensaje queda guardado en local igualmente */ }
+  } catch (_) { /* silenciar errores de red */ }
 
   this.style.display = 'none';
   document.getElementById('msgThanks').style.display = 'block';
-
-  const defaults = [
-    { nombre: "María & Carlos", texto: "¡Felicidades a los dos! No podemos esperar a celebrar con vosotros este día tan especial. Os queremos mucho." },
-    { nombre: "La familia González", texto: "Que este nuevo capítulo esté lleno de amor, risas y aventuras compartidas. ¡Salud por Raquel y Samuel!" }
-  ];
-  renderMessages([...defaults, ...saved]);
 });
-
-function escapeHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// Cargar mensajes al iniciar
-loadMessages();
 
 // ============================================================
 // SMOOTH SCROLL para navegación interna
