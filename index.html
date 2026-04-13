@@ -893,6 +893,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-row input:focus,
 .form-row select:focus,
 .form-row textarea:focus { border-bottom-color: var(--gold); }
+.form-row.field-error input,
+.form-row.field-error select,
+.form-row.field-error textarea { border-bottom-color: #e07070; }
+.form-row .field-error-msg {
+  display: none;
+  font-size: .7rem;
+  color: #e07070;
+  margin-top: .4rem;
+  letter-spacing: .05em;
+}
+.form-row.field-error .field-error-msg { display: block; }
+.radio-group.field-error-radio { outline: 1px solid #e07070; outline-offset: 6px; border-radius: 2px; }
 
 .form-row select {
   cursor: pointer;
@@ -2049,25 +2061,28 @@ footer .section-title {
         <input type="hidden" name="subject" value="Nueva confirmación de asistencia — Boda Samuel & Raquel">
         <input type="hidden" name="from_name" value="Web Boda Samuel & Raquel">
 
-        <div class="form-row">
+        <div class="form-row" id="row-nombre">
           <label for="nombre">Nombre y apellidos</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo">
+          <span class="field-error-msg">Por favor, introduce tu nombre y apellidos.</span>
         </div>
 
-        <div class="form-row">
+        <div class="form-row" id="row-asistencia">
           <label>¿Asistirás a la boda?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="asistencia" value="Si, allí estaré!" required> ✓ Sí, allí estaré</label>
+          <div class="radio-group" id="radio-asistencia">
+            <label><input type="radio" name="asistencia" value="Si, allí estaré!"> ✓ Sí, allí estaré</label>
             <label><input type="radio" name="asistencia" value="No podré asistir"> ✗ No podré asistir</label>
           </div>
+          <span class="field-error-msg">Por favor, indica si asistirás a la boda.</span>
         </div>
 
-        <div class="form-row">
+        <div class="form-row" id="row-transporte">
           <label>¿Cómo vas a llegar a la boda?</label>
-          <div class="radio-group">
+          <div class="radio-group" id="radio-transporte">
             <label><input type="radio" name="transporte" value="Autobús privado"> 🚌 En el autobús privado</label>
             <label><input type="radio" name="transporte" value="Medios propios"> 🚗 En medios propios</label>
           </div>
+          <span class="field-error-msg">Por favor, indica cómo vas a llegar.</span>
         </div>
 
         <div class="form-row">
@@ -2091,9 +2106,10 @@ footer .section-title {
 
           <div class="companion-card" id="companion-1">
             <span class="companion-label">Acompañante 1</span>
-            <div class="form-row">
+            <div class="form-row" id="row-acomp-1-nombre">
               <label for="acomp_1_nombre">Nombre y apellidos</label>
               <input type="text" id="acomp_1_nombre" name="acompanante_1_nombre" placeholder="Nombre completo">
+              <span class="field-error-msg">Por favor, introduce el nombre y apellidos del acompañante.</span>
             </div>
             <div class="form-row">
               <label for="acomp_1_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
@@ -2103,9 +2119,10 @@ footer .section-title {
 
           <div class="companion-card" id="companion-2" style="display:none">
             <span class="companion-label">Acompañante 2</span>
-            <div class="form-row">
+            <div class="form-row" id="row-acomp-2-nombre">
               <label for="acomp_2_nombre">Nombre y apellidos</label>
               <input type="text" id="acomp_2_nombre" name="acompanante_2_nombre" placeholder="Nombre completo">
+              <span class="field-error-msg">Por favor, introduce el nombre y apellidos del acompañante.</span>
             </div>
             <div class="form-row">
               <label for="acomp_2_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
@@ -2115,9 +2132,10 @@ footer .section-title {
 
           <div class="companion-card" id="companion-3" style="display:none">
             <span class="companion-label">Acompañante 3</span>
-            <div class="form-row">
+            <div class="form-row" id="row-acomp-3-nombre">
               <label for="acomp_3_nombre">Nombre y apellidos</label>
               <input type="text" id="acomp_3_nombre" name="acompanante_3_nombre" placeholder="Nombre completo">
+              <span class="field-error-msg">Por favor, introduce el nombre y apellidos del acompañante.</span>
             </div>
             <div class="form-row">
               <label for="acomp_3_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
@@ -2127,9 +2145,10 @@ footer .section-title {
 
           <div class="companion-card" id="companion-4" style="display:none">
             <span class="companion-label">Acompañante 4</span>
-            <div class="form-row">
+            <div class="form-row" id="row-acomp-4-nombre">
               <label for="acomp_4_nombre">Nombre y apellidos</label>
               <input type="text" id="acomp_4_nombre" name="acompanante_4_nombre" placeholder="Nombre completo">
+              <span class="field-error-msg">Por favor, introduce el nombre y apellidos del acompañante.</span>
             </div>
             <div class="form-row">
               <label for="acomp_4_alergias">¿Tienes alguna alergia, intolerancia o restricción alimentaria (vegetariano, vegano, celíaco, menú infantil) que debamos tener en cuenta?</label>
@@ -2410,11 +2429,68 @@ function actualizarAcompanantes() {
 }
 document.getElementById('acompanantes').addEventListener('change', actualizarAcompanantes);
 
+// Limpiar errores al interactuar con los campos
+document.getElementById('nombre').addEventListener('input', function() { rsvpSetError('row-nombre', false); });
+document.querySelectorAll('input[name="asistencia"]').forEach(function(r) {
+  r.addEventListener('change', function() { rsvpSetError('row-asistencia', false); });
+});
+document.querySelectorAll('input[name="transporte"]').forEach(function(r) {
+  r.addEventListener('change', function() { rsvpSetError('row-transporte', false); });
+});
+for (var _i = 1; _i <= 4; _i++) {
+  (function(i) {
+    document.getElementById('acomp_' + i + '_nombre').addEventListener('input', function() {
+      rsvpSetError('row-acomp-' + i + '-nombre', false);
+    });
+  })(_i);
+}
+
 // ============================================================
 // RSVP FORM
 // ============================================================
+function rsvpSetError(rowId, hasError) {
+  const row = document.getElementById(rowId);
+  if (!row) return;
+  if (hasError) row.classList.add('field-error');
+  else row.classList.remove('field-error');
+}
+
 document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+
+  // ── Validación ──────────────────────────────────────────────
+  let valid = true;
+
+  // Nombre principal
+  const nombreVal = document.getElementById('nombre').value.trim();
+  rsvpSetError('row-nombre', !nombreVal);
+  if (!nombreVal) valid = false;
+
+  // Asistencia (radio)
+  const asistenciaVal = this.querySelector('input[name="asistencia"]:checked');
+  rsvpSetError('row-asistencia', !asistenciaVal);
+  if (!asistenciaVal) valid = false;
+
+  // Transporte (radio)
+  const transporteVal = this.querySelector('input[name="transporte"]:checked');
+  rsvpSetError('row-transporte', !transporteVal);
+  if (!transporteVal) valid = false;
+
+  // Nombres de acompañantes visibles
+  const numAcomp = parseInt(document.getElementById('acompanantes').value, 10);
+  for (let i = 1; i <= numAcomp; i++) {
+    const acompNombre = document.getElementById('acomp_' + i + '_nombre').value.trim();
+    rsvpSetError('row-acomp-' + i + '-nombre', !acompNombre);
+    if (!acompNombre) valid = false;
+  }
+
+  if (!valid) {
+    // Desplazar hasta el primer error
+    const firstError = this.querySelector('.field-error');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  // ────────────────────────────────────────────────────────────
 
   const btn = this.querySelector('.btn-submit');
   btn.textContent = 'Enviando…';
@@ -2424,7 +2500,6 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
   const data = Object.fromEntries(formData.entries());
 
   // Eliminar campos de acompañantes que no se van a enviar
-  const numAcomp = parseInt(document.getElementById('acompanantes').value, 10);
   for (let i = numAcomp + 1; i <= 4; i++) {
     delete data['acompanante_' + i + '_nombre'];
     delete data['acompanante_' + i + '_alergias'];
